@@ -1,0 +1,31 @@
+[Unit]
+Description=Jellyfin Media Server
+After=network.target
+
+[Service]
+Type=simple
+User=jellyfin
+EnvironmentFile=/etc/default/jellyfin
+ExecStart=/usr/bin/jellyfin $JELLYFIN_WEB_OPT $JELLYFIN_FFMPEG_OPT $JELLYFIN_SERVICE_OPT $JELLYFIN_NOWEBAPP_OPT $JELLYFIN_ADDITIONAL_OPTS --datadir $JELLYFIN_DATA_DIR --configdir $JELLYFIN_CONFIG_DIR --logdir $JELLYFIN_LOG_DIR --cachedir $JELLYFIN_CACHE_DIR
+
+# Tameng proteksi otomatis agar service bangun sendiri saat crash
+Restart=on-failure
+RestartSec=5
+
+# Batasan resource agar server fufufafa gak nge-hang total saat transcoding berat
+SuccessExitStatus=0 143
+TimeoutStartSec=90
+StatusText=Jellyfin Media Server is running
+
+[Install]
+WantedBy=multi-user.target
+
+Kesalahan umum
+1. Mengatasi Masalah Loop-Crash (Storage Insufficient)
+sudo apt-get clean && sudo journalctl --vacuum-time=2d
+2. Bypass Masalah Name Resolution (DNS Failed)
+rm -f /etc/resolv.conf
+echo -e "nameserver 1.1.1.1\nameserver 8.8.8.8" > /etc/resolv.conf
+chattr +i /etc/resolv.conf
+3.Eksekusi Pembersihan Judul Duplikat Media (Sanitization Scraping)
+for f in Lk21.De-*; do mv "$f" "${f#Lk21.De-}"; done 

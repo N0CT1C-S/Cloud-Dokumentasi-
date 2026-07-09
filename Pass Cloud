@@ -1,0 +1,7 @@
+8RPZ7jUrU
+docker logs qbittorrent 2>&1 | grep -i "password"
+
+
+sudo systemctl stop jellyfin
+sudo systemctl status jellyfin
+sudo systemctl start jellyfin

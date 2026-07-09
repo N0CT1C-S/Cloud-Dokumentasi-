@@ -1,0 +1,32 @@
+1. Jalur Menyalakan Server (Headless Mode) 
+Gunakan perintah ini di terminal Kali Linux untuk membangunin server tanpa memunculkan jendela GUI VirtualBox:
+VBoxManage startvm "nama_vm" --type headless
+note:Setelah ketik ini, tunggu sekitar 45 - 60 detik agar OS Ubuntu Server di latar belakang selesai melakukan proses booting.
+
+2.Menambahkan adminz 
+ketik perintah berikut untuk bisa menambah admin/Mod
+sudo adduser sigma
+
+3.Massukan ke Grup sudo
+sudo usermod -aG sudo sigma
+
+4.Tes Jalur Loginnya!
+ssh sigma@192.168.1.13
+
+5.masukkan password dari admin sigma@192.168.1.13
+
+6.Jalur Masuk Server via SSH
+ssh sigma@192.168.1.13
+
+7.Mematikan server
+sudo poweroff
+
+8.Perintah Cek Status & Troubleshooting
+   1.Cek daftar nama VM yang terdaftar:
+   VBoxManage list vms
+
+   2.Cek VM apa saja yang statusnya lagi aktif/nyala saat ini:
+   VBoxManage list runningvms
+
+9.Satu Baris (All-in-One Command)
+VBoxManage startvm "Cloud" --type headless && sleep 45 && ssh sigma@192.168.1.13
