@@ -1,6 +1,6 @@
 # Cloud-Dokumentasi-
 
-# Automated Self-Hosted Media Server Architecture (Fufufafa Project)
+# Automated Self-Hosted Media Server Architecture (fufufafa Project)
 
 Repository ini berisi dokumentasi, berkas konfigurasi, dan script otomatisasi untuk membangun **Private Media Streaming Server** mandiri menggunakan **Jellyfin** berbasis OS **Ubuntu Server 24.04 LTS**, dengan memanfaatkan penyimpanan berbasis Cloud (**Google Drive**) via **Rclone Engine**.
 
